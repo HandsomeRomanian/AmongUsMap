@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { MapComponent } from './map/map.component';
 import { RoadmapComponent } from './roadmap/roadmap.component';
+import { MapsService } from "./services/maps.service";
 
 @NgModule({
   declarations: [
@@ -20,9 +21,9 @@ import { RoadmapComponent } from './roadmap/roadmap.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  providers: [],
+  providers: [MapsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

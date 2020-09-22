@@ -17,9 +17,7 @@
             Map list
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">The Skeld</a>
-            <a class="dropdown-item" href="#">MiraHQ</a>
-            <a class="dropdown-item" href="#">Plotus</a>
+            <a *ngFor="let item of this.mapService.getMaps()" class="dropdown-item" routerLink="/map/{{item.id}}" >{{item.Name}}</a>
           </div>
         </li>
       </ul>

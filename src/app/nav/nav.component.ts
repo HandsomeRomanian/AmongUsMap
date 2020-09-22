@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MapsService } from '../services/maps.service';
+import { Map } from "../models/map";
 
 @Component({
   selector: 'app-nav',
@@ -7,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+  maps: Map[];
+
+  constructor(
+    private mapService: MapsService
+  ) { 
+    this.maps = mapService.getMaps();
+  }
 
   ngOnInit(): void {
   }

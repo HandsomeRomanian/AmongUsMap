@@ -12,7 +12,7 @@ export class NavComponent implements OnInit {
   maps: Map[];
 
   constructor(
-    private mapService: MapsService
+    public mapService: MapsService
   ) { 
     this.maps = mapService.getMaps();
   }

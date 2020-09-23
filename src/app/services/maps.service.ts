@@ -10,7 +10,7 @@ export class MapsService {
 
   public static tasklenghts = { Visual: "Visual", Short: "Short", Long: "Long", Common: "Common" }
 
-  maps = [new Map("The Skeld"), new Map("Mira HQ"), new Map("Plotus")]
+  maps = [new Map("The Skeld"), new Map("Mira HQ"), new Map("Polus")]
 
   tasks = [
     new Task("Fix Wiring", MapsService.tasklenghts.Common),

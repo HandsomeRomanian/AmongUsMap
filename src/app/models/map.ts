@@ -21,6 +21,9 @@ export class Map {
     public get image() : string {
         return "/assets/HD/"+this._id+".png";
     }
+    public get logo() : string {
+        return "/assets/logo/"+this._id+".png";
+    }
     
     constructor(name: string) {
         this.Name = name;

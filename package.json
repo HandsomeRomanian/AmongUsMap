@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "gitsend": "ng deploy --repo=https://github.com/HandsomeRomanian/AmongUsMap.git --name=\"HandsomeRomanian\" --email=mat4school@gmail.com",
+    "gitsend": "ng deploy --repo=https://github.com/HandsomeRomanian/AmongUsMap.git --cname=amongus.mateimartin.ca --name=\"HandsomeRomanian\" --email=mat4school@gmail.com",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

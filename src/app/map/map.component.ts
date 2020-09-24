@@ -10,6 +10,7 @@ import { MapsService } from '../services/maps.service';
 })
 export class MapComponent implements OnInit {
 
+  seetasks = true;
   map: Map;
 
   constructor(

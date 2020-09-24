@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { MapComponent } from './map/map.component';
 import { RoadmapComponent } from './roadmap/roadmap.component';
 import { MapsService } from "./services/maps.service";
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,11 +18,12 @@ import { MapsService } from "./services/maps.service";
     FooterComponent,
     HomeComponent,
     MapComponent,
-    RoadmapComponent
+    RoadmapComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule
   ],
   providers: [MapsService],
   bootstrap: [AppComponent]

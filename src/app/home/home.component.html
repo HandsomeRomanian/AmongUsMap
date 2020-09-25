@@ -1,12 +1,13 @@
-<div class="container" style="height: 90vh;">
+<div class="container">
     <br>
-    <h1 class="title text-center">Home</h1>
-    <div class="row" >
-        <div *ngFor="let item of this.mapService.getMaps()" class="card"  routerLink="/map/{{item.id}}"  style=" margin: 1em; width: 18rem;">
+    <div class="row  justify-content-center">
+        <div *ngFor="let item of this.mapService.getMaps()" class="card" routerLink="/map/{{item.id}}"
+            style=" margin: 1em; width: 18rem;">
             <img class="card-img-top" src="/assets/logo/{{item.id}}.png" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title" style="color: black;">{{item.Name}}</h5>
             </div>
         </div>
     </div>
+    <app-roadmap></app-roadmap>
 </div>

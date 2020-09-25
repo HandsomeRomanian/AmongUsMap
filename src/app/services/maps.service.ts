@@ -26,7 +26,11 @@ export class MapsService {
     new Task("Divert Power", MapsService.tasklenghts.Long),
   ]
 
-  constructor() { }
+  currentMap;
+
+  constructor() { 
+    this.currentMap = null;
+  }
 
   getMaps(): Map[]{
     return this.maps;

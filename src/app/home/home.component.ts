@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { MapsService } from '../services/maps.service';
 
 @Component({
@@ -8,8 +9,14 @@ import { MapsService } from '../services/maps.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public mapService: MapsService) { }
-
+  constructor(
+    public mapService: MapsService,
+    private route: ActivatedRoute) { 
+      this.route.paramMap.subscribe(params => {
+        let mapName = params.get("map");
+        mapService.currentMap = mapService.getMap(mapName);
+      })
+    }
   ngOnInit(): void {
   }
 

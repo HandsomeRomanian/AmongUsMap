@@ -1,14 +1,16 @@
-<div class="container">
-    <br>
-    <h1 class="title text-center">Roadmap</h1>
-    <br>
-    <br>
-    <div class="row" style="height: 90vh;">
-        <ol class="list-group list-group-flush">
-            <li class="list-group-item">I wish i was this organisez.</li>
-            <li class="list-group-item">Plz create issues for ideas.</li>
-            <li class="list-group-item">1. Task List</li>
-            <li class="list-group-item">2. Interactive Tasks on the maps</li>
-        </ol>
+<h1 class="title text-center">Roadmap</h1>
+<br>
+<br>
+<div class="row justify-content-center">
+    <div class="card" style=" margin: 1em; width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title" style="color: black;">Please create <a href="https://github.com/HandsomeRomanian/AmongUsMap/issues/new/choose">issues</a> for ideas
+            </h5>
+        </div>
+    </div>
+    <div *ngFor="let item of this.todos" class="card" style=" margin: 1em; width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title" style="color: black;">{{item}}</h5>
+        </div>
     </div>
 </div>

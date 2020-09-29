@@ -1,9 +1,9 @@
 <div class="container">
     <br>
     <div class="row  justify-content-center">
-        <div *ngFor="let item of this.mapService.getMaps()" class="card" routerLink="/map/{{item.id}}"
+        <div *ngFor="let item of this.mapService.getMaps()" class="card" routerLink="/map/{{item.Id}}"
             style=" margin: 1em; width: 18rem;">
-            <img class="card-img-top" src="/assets/logo/{{item.id}}.png" alt="Card image cap">
+            <img class="card-img-top" src="/assets/logo/{{item.Id}}.png" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title" style="color: black;">{{item.Name}}</h5>
             </div>

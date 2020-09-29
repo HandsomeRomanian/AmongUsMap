@@ -2,10 +2,12 @@ import { TaskEntity } from "./taskentity";
 
 export class Map {
 
-    public tasks : TaskEntity[];
+    public Tasks : TaskEntity[];
+
+    public Width : number;
 
     private _id : string;
-    public get id() : string {
+    public get Id() : string {
         return this._id;
     }    
     
@@ -18,15 +20,18 @@ export class Map {
         this._id = v.toLowerCase().replace(" ","")
     }
 
-    public get image() : string {
+
+
+    public get Image() : string {
         return "/assets/HD/"+this._id+".png";
     }
-    public get logo() : string {
+    public get Logo() : string {
         return "/assets/logo/"+this._id+".png";
     }
     
-    constructor(name: string) {
+    constructor(name: string , width: number) {
         this.Name = name;
+        this.Width = width;
     }
 
 

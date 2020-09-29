@@ -1,55 +1,14 @@
 <div class="main">
-    <!-- <div class="toggle">
-        <p style="margin: 0;">See Tasks</p>
-        <label class="switch">
-            <input type="checkbox" [(ngModel)]="this.seetasks">
-            <span class="slider round"></span>
-        </label>
-    </div> -->
-    <div style="width: 100%;">
-        <img id="img_ID" *ngIf="!this.seetasks" width="100%" src="{{this.map.image}}" alt="{{this.map.Name}} Image"
-            usemap="#image-map">
-        <!-- <img *ngIf="this.seetasks" width="2000em" src="/assets/tasks/{{this.map.id}}.png" alt="{{this.map.Name}} Image"
-            usemap="#image-map">  -->
 
+    <div style="width: 100%;">
+        <img id="img_ID" *ngIf="!this.seetasks" width="100%" src="{{this.map.Image}}" alt="{{this.map.Name}} Image"
+            usemap="#image-map">
 
         <map name="image-map" id="map_ID">
-            <area alt="Medbay viles" title="Medbay viles" href="#" style="display: block; background-color: red;"
-                coords="{{tag1.x1 / (tag1.ogWidth/this.page.width)}},{{tag1.x2/ (tag1.ogWidth/this.page.width)}},{{tag1.y1/ (tag1.ogHeight/this.page.height)}},{{tag1.y2/ (tag1.ogHeight/this.page.height)}}"
-                shape="rect">
-            <area target="_blank" alt="Medbay scan" title="Medbay scan" href="#" coords="3576,2357,3916,2581"
-                shape="rect">
-            <area alt="Storage Trash" title="Storage Trash" href="" coords="4945,4467,5246,4939" shape="rect">
-            <area alt="Fuel" title="Fuel" href="" coords="4473,3957,4597,4112" shape="rect">
-            <area alt="Vent" title="Vent" href="" coords="3228,2937,3352,3022" shape="rect">
+            <area style="cursor: pointer;" *ngFor="let task of this.tasks" alt="{{task.Name}}" title="{{task.Name}}" (click)="test(task.Id)"
+                coords="{{task.Location[0] * this.Ratio()}},{{task.Location[1] * this.Ratio()}},{{task.Location[2] * this.Ratio()}},{{task.Location[3] * this.Ratio()}}" 
+                shape="rect" data-toggle="tooltip" data-placement="top">
         </map>
     </div>
-    <!-- <div class="sidebar">
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                Cables
-                <span class="badge badge-primary badge-pill">4</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                Divert Power
-                <span class="badge badge-primary badge-pill">2</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                Download
-                <span class="badge badge-primary badge-pill">2</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                Trash
-                <span class="badge badge-primary badge-pill">3</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                Visual
-                <span class="badge badge-primary badge-pill">4</span>
-            </li>
-        </ul>
-    </div> -->
-
 
 </div>
-
-<script src="test.js"></script>

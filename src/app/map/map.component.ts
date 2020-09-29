@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit, SystemJsNgModuleLoader } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Map } from '../models/map';
+import { TaskEntity } from '../models/taskentity';
 import { MapsService } from '../services/maps.service';
 declare var jQuery: any;
 
@@ -8,44 +9,53 @@ declare var jQuery: any;
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.scss']
+  styleUrls: ['./map.component.scss'],
+  host: {
+    '(window:resize)': 'onResize($event)'
+  }
 })
 export class MapComponent implements OnInit, AfterViewInit {
 
-  seetasks = false;
-  map: Map;
   img;
-  tag1 = { ogWidth: 8753, ogHeight: 5217, label: "Test", x1: 4945, x2: 4467, y1: 5246, y2: 4939 }
-  page = screen; 
+  ratio;
+  map: Map;
+  pagewidth = window.innerWidth;
+  seetasks = false;
+  tasks: TaskEntity[] = [];
 
 
   constructor(
     private mapService: MapsService,
     private route: ActivatedRoute) {
     this.route.paramMap.subscribe(params => {
+
       let mapName = params.get("map");
       this.map = mapService.getMap(mapName);
-      mapService.currentMap = this.map;
+      this.mapService.currentMap = this.map;
+      this.tasks = mapService.tasks.filter(x => x.Map.Id == this.map.Id);
+
     })
   }
 
   ngOnInit(): void {
-    (function ($) {
-      $(document).ready(function () {
-        $('map_ID').imageMapResize();
-      });
-      
-    })(jQuery);
   }
 
   ngAfterViewInit(): void {
     this.img = document.getElementById("img_ID");
-    console.log(this.img.clientWidth)
-    console.log(this.img.clientHeight)
-
-
     //imageMapResize();
 
+  }
+
+  onResize(event){
+    this.pagewidth = event.target.innerWidth;
+  }
+
+  test(id){
+    console.log(this.mapService.tasks.filter(x => x.Id == id)[0])
+  }
+
+  Ratio(){
+    return (this.pagewidth-15) / this.map.Width;
   }
 
 }

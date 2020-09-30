@@ -20,10 +20,8 @@ export class Map {
         this._id = v.toLowerCase().replace(" ","")
     }
 
-
-
     public get Image() : string {
-        return "/assets/HD/"+this._id+".png";
+        return "/assets/map/"+this._id+".png";
     }
     public get Logo() : string {
         return "/assets/logo/"+this._id+".png";

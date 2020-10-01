@@ -42,16 +42,13 @@ export class MapComponent implements OnInit, AfterViewInit {
     this.bgmap = document.getElementById("bg_map");
     this.ventimg = document.getElementById("img_connections");
   }
-
+  
   ngAfterViewInit(): void {
     for (let element of this.toggles) {
       document.getElementById("img_" + element).style.top = this.bgmap.offsetTop.toString() - 14 + "px";
-      document.getElementById("img_" + element).style.display = "block"
-      if (element == "Connections") {
-        document.getElementById("img_" + element).style.display = "none"
-      }
+      document.getElementById("img_" + element).style.display = "none"
+      
     }
-
     this.ventimg.style.top = this.bgmap.offsetTop.toString() - 14 + "px";
   }
 
@@ -68,8 +65,6 @@ export class MapComponent implements OnInit, AfterViewInit {
   }
 
   hover(task: Task, action: boolean) {
-    console.log(this.ventimg);
-
     if (task.Type == Task.Types.Vent && action) {
       this.ventimg.src = "/assets/overlays/" + this.map.Id + "/vents/" + task.Place + ".png";
     }
@@ -77,7 +72,6 @@ export class MapComponent implements OnInit, AfterViewInit {
       this.ventimg.src = "";
 
     }
-    console.log('Mouse Entered :>> ', task);
   }
 
   toggle(value): void {

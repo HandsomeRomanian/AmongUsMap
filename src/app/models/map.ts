@@ -1,8 +1,8 @@
-import { TaskEntity } from "./taskentity";
+import { Task } from "./task";
 
 export class Map {
 
-    public Tasks : TaskEntity[];
+    public Tasks : Task[];
 
     public Width : number;
 
@@ -25,6 +25,9 @@ export class Map {
     }
     public get Logo() : string {
         return "/assets/logo/"+this._id+".png";
+    }
+    public get Callouts() : string {
+        return "/assets/callouts/"+this._id+".png";
     }
     
     constructor(name: string , width: number) {

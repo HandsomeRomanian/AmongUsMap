@@ -1,14 +1,43 @@
 <div class="main">
 
     <div style="width: 100%;">
-        <img id="img_ID" *ngIf="!this.seetasks" width="100%" src="{{this.map.Image}}" alt="{{this.map.Name}} Image"
-            usemap="#image-map">
+
+        <div class="toggle">
+            <p style="margin: 0;">Sidebar</p>
+            <label class="switch">
+                <input type="checkbox" [(ngModel)]="this.sidebar">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <img id="bg_map" style="z-index: -1;" width="100%" src="{{this.map.Image}}" alt="{{this.map.Name}} Image"
+            usemap="#image-map" />
+
+        <img *ngFor="let item of this.toggles" id="img_{{item}}" class="overlay" width="100%" usemap="#image-map"
+            src="/assets/overlays/{{this.map.Id}}/{{item.toLocaleLowerCase()}}.png" alt="" />
+
+        <img id="img_connections" class="overlay" width="100%" usemap="#image-map" src="" alt="" />
 
         <map name="image-map" id="map_ID">
-            <area style="cursor: pointer;" *ngFor="let task of this.tasks" alt="{{task.Name}}" title="{{task.Name}}" (click)="test(task.Id)"
-                coords="{{task.Location[0] * this.Ratio()}},{{task.Location[1] * this.Ratio()}},{{task.Location[2] * this.Ratio()}},{{task.Location[3] * this.Ratio()}}" 
+            <area style="cursor: pointer;" *ngFor="let task of this.tasks" alt="{{task.Name}}" title="{{task.Name}}"
+                (click)="taskclick(task.Id)" (mouseenter)="hover(task,true)" (mouseout)="hover(task,false)"
+                coords="{{task.Location[0] * this.Ratio()}},{{task.Location[1] * this.Ratio()}},{{task.Location[2] * this.Ratio()}},{{task.Location[3] * this.Ratio()}}"
                 shape="rect" data-toggle="tooltip" data-placement="top">
         </map>
+        <div *ngIf="this.sidebar" id="sidebar">
+            <ul class="list-group list-group-flush">
+                <li *ngFor="let type of this.toggles"
+                    class="list-group-item d-flex justify-content-between align-items-center fake-button"
+                    (click)="toggle(type)" >
+                    {{type}}
+                    <span *ngIf="isEnabled(type)" class="badge badge-primary badge-pill">{{mapService.getTasksByType(type).length}}</span>
+                    <span *ngIf="!isEnabled(type)" class="badge badge-danger badge-pill">{{mapService.getTasksByType(type).length}}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center fake-button"
+                    (click)="toggle('all')"> All Tasks
+                    <span class="badge badge-primary badge-pill">{{this.tasks.length}}</span>
+                </li>
+            </ul>
+        </div>
     </div>
 
 </div>

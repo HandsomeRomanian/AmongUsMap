@@ -1,7 +1,15 @@
-.nav-item{
-    margin: 0 1em;
+.nav-item {
+  margin: 0 1em;
 }
-.alert{
-    padding: 0;
-    margin: 0;
+.alert {
+  padding: 0;
+  margin: 0;
+}
+
+.fake-button {
+  cursor: pointer;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
 }

@@ -1,32 +1,39 @@
 <nav class="navbar navbar-dark bg-danger justify-content-center">
   <!-- <a class="navbar-brand" [routerLink]="['/']">Among Us Maps</a> -->
- <p class="alert text-center">Tasks are temporary disabled until I figure out how to add labels over the images</p>
+  <p class="alert text-center">Tasks are temporary disabled until I figure out how to add labels over the images</p>
 
- 
+
 </nav>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center">
-     <!-- <a class="navbar-brand" [routerLink]="['/']">Among Us Maps</a> -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button> 
-  
-    <div class="collapse navbar-collapse justify-content-between align-items-center" id="navbarSupportedContent">
-      <ul class="navbar-nav mx-auto text-center">
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/']" routerLinkActive="router-link-active">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" *ngIf="!mapService.currentMap"><h4 class="text-strong">Among Us Map</h4></a>
-          <a class="nav-link" *ngIf="mapService.currentMap"><h4 class="text-strong">{{mapService.currentMap.Name}}</h4></a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Map list
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a *ngFor="let item of this.mapService.getMaps()" class="dropdown-item" routerLink="/map/{{item.Id}}" >{{item.Name}}</a>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </nav>
+  <!-- <a class="navbar-brand" [routerLink]="['/']">Among Us Maps</a> -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse justify-content-between align-items-center" id="navbarSupportedContent">
+    <ul class="navbar-nav mx-auto text-center">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/']" routerLinkActive="router-link-active">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link fake-button" *ngIf="!mapService.currentMap">
+          <h4 class="text-strong">Among Us Map</h4>
+        </a>
+        <a class="nav-link fake-button" *ngIf="mapService.currentMap">
+          <h4 class="text-strong">{{mapService.currentMap.Name}}</h4>
+        </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle fake-button" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Map list
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a *ngFor="let item of this.mapService.getMaps()" class="dropdown-item fake-button"
+            routerLink="/map/{{item.Id}}">{{item.Name}}</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

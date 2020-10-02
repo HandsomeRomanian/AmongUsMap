@@ -1,10 +1,11 @@
-<nav class="navbar navbar-dark bg-warning justify-content-center text-center">
+<!-- <nav class="navbar navbar-dark bg-warning justify-content-center text-center">
   Tasks overlays are coming in the following days.
-</nav>
+</nav> -->
 <nav class="navbar navbar-dark bg-danger justify-content-center text-center" style="color: white;">
   The images loaded on this website are very large and may cause high data consumption.
-  <br> Be carefull if you have a limited data plan.
-</nav>
+  <!-- <br> Be carefull if you have a limited data plan. -->
+
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center">
   <!-- <a class="navbar-brand" [routerLink]="['/']">Among Us Maps</a> -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -18,20 +19,23 @@
         <a class="nav-link" [routerLink]="['/']" routerLinkActive="router-link-active">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" *ngIf="!mapService.currentMap">
+        <a class="nav-link fake-button" *ngIf="!mapService.currentMap">
           <h4 class="text-strong">Among Us Map</h4>
         </a>
-        <a class="nav-link" *ngIf="mapService.currentMap">
+        <a class="nav-link fake-button" *ngIf="mapService.currentMap">
+
           <h4 class="text-strong">{{mapService.currentMap.Name}}</h4>
         </a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+
+        <a class="nav-link dropdown-toggle fake-button" id="navbarDropdown" role="button" data-toggle="dropdown"
+
           aria-haspopup="true" aria-expanded="false">
           Map list
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a *ngFor="let item of this.mapService.getMaps()" class="dropdown-item"
+          <a *ngFor="let item of this.mapService.getMaps()" class="dropdown-item fake-button"
             routerLink="/map/{{item.Id}}">{{item.Name}}</a>
         </div>
       </li>

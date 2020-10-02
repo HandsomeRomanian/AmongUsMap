@@ -1,8 +1,8 @@
-import { TaskEntity } from "./taskentity";
+import { Task } from "./task";
 
 export class Map {
 
-    public Tasks : TaskEntity[];
+    public Tasks : Task[];
 
     public Width : number;
 
@@ -20,13 +20,14 @@ export class Map {
         this._id = v.toLowerCase().replace(" ","")
     }
 
-
-
     public get Image() : string {
-        return "/assets/HD/"+this._id+".png";
+        return "/assets/map/"+this._id+".png";
     }
     public get Logo() : string {
         return "/assets/logo/"+this._id+".png";
+    }
+    public get Callouts() : string {
+        return "/assets/callouts/"+this._id+".png";
     }
     
     constructor(name: string , width: number) {

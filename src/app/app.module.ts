@@ -10,6 +10,7 @@ import { MapComponent } from './map/map.component';
 import { RoadmapComponent } from './roadmap/roadmap.component';
 import { MapsService } from "./services/maps.service";
 import { FormsModule } from '@angular/forms';
+import { AdsenseModule } from 'ng2-adsense';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,11 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AdsenseModule.forRoot({
+      adClient: 'ca-pub-7640562161899788',
+      adSlot: 7259870550,
+    }),
   ],
   providers: [MapsService],
   bootstrap: [AppComponent]
